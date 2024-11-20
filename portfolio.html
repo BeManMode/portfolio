@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио BeMan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        header {
+            background: linear-gradient(135deg, #ff5f6d, #ffc3a0);
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeIn 1s ease-out;
+        }
+        .section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .projects, .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .project-card, .skill-card {
+            background-color: #333;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .project-card:hover, .skill-card:hover {
+            transform: scale(1.05);
+        }
+        .button {
+            background-color: #ff5f6d;
+            padding: 10px 30px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ffc3a0;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Привет, я BeMan — эксперт в области кибербезопасности</h1>
+        <p>Меня зовут BeMan, и я создаю решения для защиты данных и информации. Ознакомьтесь с моими проектами и навыками!</p>
+    </header>
+
+    <section class="section fade-in">
+        <h2>Мои проекты</h2>
+        <div class="projects">
+            <div class="project-card fade-in">
+                <h3>Проект 1</h3>
+                <p>Описание проекта, цели и достижения.</p>
+            </div>
+            <div class="project-card fade-in">
+                <h3>Проект 2</h3>
+                <p>Описание проекта, цели и достижения.</p>
+            </div>
+            <div class="project-card fade-in">
+                <h3>Проект 3</h3>
+                <p>Описание проекта, цели и достижения.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Мои навыки</h2>
+        <div class="skills">
+            <div class="skill-card fade-in">
+                <h3>Python</h3>
+                <p>Опыт в создании скриптов для тестирования безопасности.</p>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>Веб-разработка</h3>
+                <p>Проектирование интерфейсов и создание динамичных приложений.</p>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>Цифровая безопасность</h3>
+                <p>Анализ уязвимостей и защита данных.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Контакт</h2>
+        <a href="mailto:someone@example.com" class="button">Связаться со мной</a>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    element.style.opacity = 1;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
