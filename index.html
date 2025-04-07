@@ -1,22 +1,45 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Test XSS Site</title>
+  <meta charset="UTF-8">
+  <title>Welcome to MySite</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #eee;
+      padding: 30px;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #555;
+    }
+    #result {
+      margin-top: 20px;
+      background: #222;
+      padding: 15px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Введите сообщение</h1>
-  <form action="/echo" method="GET">
-    <input type="text" name="msg">
+  <h1>Оставь сообщение</h1>
+  <form id="form">
+    <input type="text" id="msg" placeholder="Напиши что-нибудь">
     <button type="submit">Отправить</button>
   </form>
 
-  <p>Результат:</p>
-  <div id="result">
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      document.write(params.get('msg'));
-    </script>
-  </div>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const msg = document.getElementById("msg").value;
+      // Уязвимость: вставка без фильтрации
+      document.getElementById("result").innerHTML = msg;
+    });
+  </script>
 </body>
 </html>
